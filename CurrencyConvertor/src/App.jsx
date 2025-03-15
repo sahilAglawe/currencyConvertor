@@ -17,15 +17,11 @@ function App() {
   const swap = () => {
     setFrom(to)
     setTo(from)
-    setAmount(convertedAmount)
     setConvertedAmount(amount)
+    setAmount(convertedAmount)
   }
   
   const convert = () => {
-    if(amount <= 0) {
-      alert("please enter a valid amount");
-      return;
-    }
     setConvertedAmount(amount * currencyInfo[to])
   }
 
@@ -50,7 +46,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setFrom(amount)}
+                            onCurrencyChange={(currency) => setAmount(amount)}
                             selectCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
@@ -70,7 +66,7 @@ function App() {
                             amount={convertedAmount}
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
-                            selectCurrency={to}
+                            selectCurrency={from}
                             amountDisable
                         />
                     </div>
